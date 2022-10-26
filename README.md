@@ -12,6 +12,11 @@ npm run dev
 # build npm ready bundles to be consumed by other Preact web apps
 npm run build:widget
 
+# run static example 
+cd example
+yarn
+yarn start
+
 # build npm ready bundles to be used as a component library
 npm run build:lib
 
@@ -20,6 +25,8 @@ npm run lint
 
 # run tests with jest and enzyme
 npm run test
+
+
 ```
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/preactjs/preact-cli/blob/master/README.md).
