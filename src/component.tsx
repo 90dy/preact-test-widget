@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h, JSX } from "preact";
 import { FC, useCallback } from "react";
 import { useForm, FormProvider, useController } from "react-hook-form";
 import "./style.css";

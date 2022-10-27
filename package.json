@@ -9,7 +9,7 @@
   "types": "example/dist/index.d.ts",
   "scripts": {
     "dev": "preact watch",
-    "build:widget": "microbundle build --alias react=preact/compat --jsx react-jsx",
+    "build:widget": "microbundle build --alias react=preact/compat",
     "build:lib": "microbundle build -i src/component.tsx",
     "lint": "eslint '{src,tests}/**/*.{ts,tsx}'",
     "test": "jest"
