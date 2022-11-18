@@ -1,16 +1,18 @@
 {
-  "name": "test",
+  "name": "test-widget",
   "version": "0.1.0",
   "description": "",
   "source": "src/index.ts",
   "main": "example/dist/index.js",
-  "module": "example/dist/index.module.js",
-  "umd:main": "example/dist/index.umd.js",
   "types": "example/dist/index.d.ts",
   "scripts": {
     "dev": "preact watch",
+    "build:esbuild": "esbuild src/*.ts* --bundle --outdir=example/dist --loader:.js=jsx --jsx-factory=h --jsx-fragment=Fragment",
+    "build:esbuild:watch": "chokidar -p 'src/*.{ts,tsx}' -c 'yarn build:esbuild'",
     "build:widget": "microbundle build --alias react=preact/compat",
+    "build:widget:watch": "chokidar -p 'src/*.{ts,tsx}' -c 'yarn build:widget'",
     "build:lib": "microbundle build -i src/component.tsx",
+    "build:lib:watch": "chokidar -p 'src/*.{ts,tsx}' -c 'yarn build:lib'",
     "lint": "eslint '{src,tests}/**/*.{ts,tsx}'",
     "test": "jest"
   },
@@ -29,12 +31,17 @@
   },
   "author": "Kirill Shatskiy <kshatskiy.freelance@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "esbuild": "^0.15.14",
+    "preact-compat": "^3.19.0",
+    "react": "17"
+  },
   "devDependencies": {
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
+    "chokidar-cli": "^3.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-preact-pure": "^3.3.0",
     "eslint": "^7.32.0",
@@ -54,5 +61,8 @@
     "setupFiles": [
       "<rootDir>/tests/__mocks__/setupTests.js"
     ]
+  },
+  "volta": {
+    "node": "16.18.1"
   }
 }
